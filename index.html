@@ -8,54 +8,55 @@
 </head>
 
 <body>
-
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-overlay"></div>
-
-    <div class="hero-content">
-      <h1>Andres M.</h1>
-      <p class="subtitle">
-        Creative Technologist · AR Developer · Real-time Systems Builder
-      </p>
-      <p class="description">
-        I design and build interactive digital experiences, focusing on AR, real-time systems,
-        and experimental interfaces that blur the line between physical and digital.
-      </p>
-    </div>
+  <header class="header">
+    <h1>Andres M.</h1>
+    <p>Creative Technologist · AR Developer · Real-time Systems Builder</p>
+    <button id="themeToggle">Toggle Theme</button>
   </header>
 
-  <!-- MAIN CONTENT -->
   <main class="container">
 
-    <section class="section">
-      <h2>Selected Work</h2>
+    <section class="card">
+      <h2>About Me</h2>
+      <p>
+        I build interactive AR experiences, real-time systems, and experimental digital products.
+        I care about performance, interaction design, and weird creative ideas that actually work.
+      </p>
+    </section>
 
-      <div class="grid">
+    <section class="card">
+      <h2>Projects</h2>
 
-        <div class="card">
-          <h3>AR Game Prototype</h3>
-          <p>Two-player AR experience built in Lens Studio with real-time scoring and interaction systems.</p>
-        </div>
-
-        <div class="card">
-          <h3>Lens Filters</h3>
-          <p>Face-tracking effects with dynamic state machines and animation systems.</p>
-        </div>
-
-        <div class="card">
-          <h3>Experimental UI</h3>
-          <p>Prototypes exploring gesture-based and motion-driven interaction models.</p>
-        </div>
-
+      <div class="project">
+        <h3>AR Game Prototype</h3>
+        <p>Two-player AR game built in Lens Studio with real-time scoring and physics interaction.</p>
       </div>
+
+      <div class="project">
+        <h3>Interactive Lens Filters</h3>
+        <p>Real-time face tracking effects with dynamic state machines and animations.</p>
+      </div>
+
+      <div class="project">
+        <h3>Experimental UI Systems</h3>
+        <p>Prototypes exploring gesture-based interfaces and motion-driven UX.</p>
+      </div>
+
+    </section>
+
+    <section class="card">
+      <h2>Contact</h2>
+      <p>Email: your.email@example.com</p>
+      <p>GitHub: github.com/yourusername</p>
+      <p>LinkedIn: linkedin.com/in/yourprofile</p>
     </section>
 
   </main>
 
   <footer class="footer">
-    <p>© 2026 Andres M.</p>
+    <p>Built with HTML, CSS & questionable life decisions.</p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
