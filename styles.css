@@ -1,0 +1,75 @@
+:root {
+    --bg: #0f0f0f;
+    --text: #ffffff;
+    --card: #1c1c1c;
+    --accent: #7c5cff;
+  }
+  
+  body.light {
+    --bg: #f5f5f5;
+    --text: #111;
+    --card: #ffffff;
+    --accent: #4a6cf7;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: 0.3s ease;
+  }
+  
+  .header {
+    text-align: center;
+    padding: 60px 20px;
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+  
+  .header p {
+    opacity: 0.7;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .card {
+    background: var(--card);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .project {
+    margin-top: 10px;
+    padding-left: 10px;
+    border-left: 3px solid var(--accent);
+  }
+  
+  button {
+    margin-top: 15px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    background: var(--accent);
+    color: white;
+    border-radius: 8px;
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 30px;
+    opacity: 0.6;
+  }
