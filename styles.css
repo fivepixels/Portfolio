@@ -66,42 +66,42 @@
 /* =========================
    ABOUT TEXT BLOCK
    ========================= */
-   .about-text-inner {
-    max-width: 700px;
-  }
-  
-  .about-title {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: #111;
-  }
-  
-  /* paragraphs */
-  .about-text-inner p {
-    margin-bottom: 16px;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: #444;
-  }
-  
-  /* CTA link */
-  .about-cta {
-    display: inline-block;
-    margin-top: 20px;
-  
-    font-size: 1.1rem;
-    font-weight: 600;
-  
-    color: orange;
-    text-decoration: none;
-  
-    transition: color 0.2s ease, transform 0.2s ease;
-  }
-  
-  .about-cta:hover {
-    color: red;
-    transform: translateX(4px);
-  }
+.about-text-inner {
+  max-width: 700px;
+}
+
+.about-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+/* paragraphs */
+.about-text-inner p {
+  margin-bottom: 16px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* CTA link */
+.about-cta {
+  display: inline-block;
+  margin-top: 20px;
+
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  color: orange;
+  text-decoration: none;
+
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.about-cta:hover {
+  color: #6c420f;
+  transform: translateX(4px);
+}
 
   /* =========================
      NAV LINKS (DESKTOP)
@@ -227,9 +227,9 @@
     position: absolute;
     inset: 0;
     width: 100%;
-    height: 100%;
+    height:100%;
     object-fit: cover;
-  
+    
     filter: brightness(1.15) saturate(1.25) contrast(0.95);
     transform: scale(1.04);
   
@@ -306,7 +306,7 @@
   }
   
   .hero .hero-links a:hover {
-    color: red;
+    color: #4F1811;
     text-decoration: underline;
   }
   
@@ -319,6 +319,19 @@
     padding: 60px 20px;
   }
   
+  .section {
+    margin-bottom: 120px;
+  }
+
+  .section + .section::before {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 2px;
+    background: #ddd;
+    margin: 0 auto 80px auto;
+  }
+
   .section h2 {
     margin-bottom: 20px;
     font-size: 1.8rem;
@@ -348,15 +361,17 @@
     border: 1px solid #eee;
     box-shadow: 0 8px 20px rgba(0,0,0,0.06);
   
-    opacity: 0;
-    transform: translateX(40px);
+   
   
-    transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.6s ease;
+    
   }
   
-  .card.reveal.active {
-    opacity: 1;
-    transform: translateX(0);
+  .card-inner {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card:hover .card-inner {
+    transform: translateY(-6px) scale(1.02);
   }
   
   .card:hover {
@@ -394,7 +409,7 @@
   }
   
   .see-more a:hover {
-    color: red;
+    color: #6C420F;
     text-decoration: underline;
   }
   
@@ -497,16 +512,16 @@
   /* =========================
      REVEAL SYSTEM
      ========================= */
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
-  }
-  
-  .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
+     .reveal {
+      opacity: 0;
+      transform: translateX(40px); /* was translateY */
+      transition: all 0.8s ease;
+    }
+    
+    .reveal.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
   
   /* =========================
      RESPONSIVE
