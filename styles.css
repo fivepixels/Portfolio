@@ -1,5 +1,5 @@
 /* =========================
-   RESET (removes browser defaults)
+   RESET
    ========================= */
    * {
     margin: 0;
@@ -8,36 +8,44 @@
   }
   
   /* =========================
-     BASE STYLES (global page setup)
+     BASE
      ========================= */
   body {
-    padding-top: 60px;
+    padding-top: 80px;
     font-family: Arial, sans-serif;
     color: #111;
     background: #f5f5f5;
   }
   
   /* =========================
-     NAVBAR (fixed top bar)
+     NAVBAR
      ========================= */
   .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 60px;
+    height: 80px;
     background: #000;
     color: #fff;
+  
     display: flex;
     justify-content: space-between;
     align-items: center;
+  
     padding: 0 20px;
     z-index: 1000;
   }
+
+  /* active nav link */
+.nav-links a.active {
+  color: orange;
+  opacity: 1;
+}
   
+  /* logo */
   .logo {
     display: flex;
     align-items: center;
-    height: 100%;
   }
   
   .logo img {
@@ -46,71 +54,129 @@
     display: block;
   }
   
+  /* =========================
+     NAV LINKS (DESKTOP)
+     ========================= */
   .nav-links {
     display: flex;
     gap: 20px;
   }
   
+  /* base link style */
   .nav-links a {
     color: #fff;
     text-decoration: none;
-    font-size: 0.95rem;
-    opacity: 0.8;
-    transition: opacity 0.2s ease;
+    font-size: 1.1rem;
+    opacity: 0;
+  
+    transform: translateX(20px);
+    display: inline-block;
+  
+    animation: navLinkIn 0.6s ease-out forwards;
+  }
+  
+  /* stagger animation */
+  .nav-links a:nth-child(1) { animation-delay: 1.4s; }
+  .nav-links a:nth-child(2) { animation-delay: 1.55s; }
+  .nav-links a:nth-child(3) { animation-delay: 1.7s; }
+  
+  @keyframes navLinkIn {
+    to {
+      opacity: 0.8;
+      transform: translateX(0);
+    }
   }
   
   .nav-links a:hover {
     opacity: 1;
   }
   
+  /* hamburger */
   .hamburger {
     display: none;
-    font-size: 1.5rem;
+    font-size: 2rem;
     cursor: pointer;
+    z-index: 2000;
   }
   
   /* =========================
-     MOBILE NAVIGATION
+     MOBILE MENU (FULLSCREEN)
      ========================= */
   @media (max-width: 768px) {
   
     .nav-links {
-      position: absolute;
-      top: 60px;
-      right: 0;
-      background: #000;
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 80px);
+  
+      background: rgba(0,0,0,0.98);
+  
+      display: flex;
       flex-direction: column;
-      width: 200px;
-      padding: 15px;
-      display: none;
+      justify-content: center;
+      align-items: center;
+  
+      gap: 30px;
+  
+      opacity: 0;
+      transform: translateY(-10px);
+      pointer-events: none;
+  
+      transition: 0.25s ease;
     }
   
     .nav-links.active {
-      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+  
+    .nav-links a {
+      font-size: 1.8rem;
+      padding: 10px 20px;
     }
   
     .hamburger {
       display: block;
     }
+  
+    /* hero mobile focal shift */
+    .hero img {
+      object-position: 75% center;
+    }
   }
   
   /* =========================
-     HERO SECTION
+     HAMBURGER → X
+     ========================= */
+  .hamburger::before {
+    content: "☰";
+  }
+  
+  .hamburger.active::before {
+    content: "✕";
+  }
+  
+  /* =========================
+     HERO
      ========================= */
   .hero {
     position: relative;
     height: 95vh;
+  
     display: flex;
     align-items: center;
     justify-content: center;
+  
     text-align: center;
     color: #fff;
+  
     overflow: hidden;
   }
   
-  /* =========================
-     HERO IMAGE (animated background)
-     ========================= */
+  /* image */
   .hero img {
     position: absolute;
     inset: 0;
@@ -118,15 +184,10 @@
     height: 100%;
     object-fit: cover;
   
-    z-index: 0;
-  
-    /* start bright + slightly zoomed */
     filter: brightness(1.15) saturate(1.25) contrast(0.95);
     transform: scale(1.04);
   
     animation: heroImageIn 1.4s ease-out forwards;
-  
-    will-change: transform, filter;
   }
   
   @keyframes heroImageIn {
@@ -136,9 +197,7 @@
     }
   }
   
-  /* =========================
-     HERO CONTENT CONTAINER
-     ========================= */
+  /* content */
   .hero-content {
     position: relative;
     z-index: 1;
@@ -147,96 +206,68 @@
   }
   
   /* =========================
-     STAGGERED TEXT ANIMATION
+     HERO TEXT ANIMATION
      ========================= */
-  
-  /* shared hidden starting state */
   .hero h1,
   .hero .subtitle,
   .hero .description {
     opacity: 0;
-    transform: translateY(25px); /* slightly stronger movement */
-    will-change: transform, opacity;
+    transform: translateY(25px);
   }
   
-  /* H1 (first) */
+  /* stagger */
   .hero h1 {
     font-size: 3rem;
     margin-bottom: 25px;
-  
     animation: fadeUp 0.9s ease-out 0.3s forwards;
   }
   
-  /* SUBTITLE (second) */
   .hero .subtitle {
     font-size: 1.25rem;
-    margin-bottom: 50px;
-  
+    margin-bottom: 40px;
     animation: fadeUp 0.9s ease-out 0.55s forwards;
   }
   
-  /* DESCRIPTION (third) */
   .hero .description {
     font-size: 1rem;
     line-height: 1.65;
-  
     animation: fadeUp 0.9s ease-out 0.8s forwards;
   }
   
-  /* shared animation */
   @keyframes fadeUp {
-    0% {
-      opacity: 0;
-      transform: translateY(25px);
-    }
-  
-    100% {
+    to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-
-  /* =========================
-   HERO CTA LINKS
-   ========================= */
-.hero .hero-links {
-  margin-top: 100px;
-  font-size: 1rem;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-
-  /* same stagger animation style */
-  opacity: 0;
-  transform: translateY(25px);
-  animation: fadeUp 0.9s ease-out 1.05s forwards;
-}
-
-/* link styling */
-.hero .hero-links a {
-  color: orange;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.25s ease, transform 0.2s ease;
-}
-
-/* hover effect */
-.hero .hero-links a:hover {
-  color: rgb(241, 139, 22);
-  transform: translateY(-1px);
-  text-decoration: underline;
-}
-
-/* separator styling */
-.hero .hero-links span {
-  opacity: 0.7;
-}
+  
+  /* CTA links */
+  .hero .hero-links {
+    margin-top: 60px;
+  
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  
+    opacity: 0;
+    transform: translateY(25px);
+    animation: fadeUp 0.9s ease-out 1.05s forwards;
+  }
+  
+  .hero .hero-links a {
+    color: orange;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .hero .hero-links a:hover {
+    color: red;
+    text-decoration: underline;
+  }
   
   /* =========================
-     MAIN CONTENT
+     SECTIONS
      ========================= */
   .container {
     max-width: 1000px;
@@ -258,19 +289,47 @@
     gap: 20px;
   }
   
+  /* =========================
+     CARDS (FIXED - NO DUPLICATES)
+     ========================= */
   .card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  
     background: #fff;
     padding: 20px;
-    border-radius: 12px;
+    border-radius: 14px;
+  
     border: 1px solid #eee;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  
+    opacity: 0;
+    transform: translateX(40px);
+  
+    transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.6s ease;
   }
   
+  /* reveal active state */
+  .card.reveal.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* hover */
+  .card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+  }
+  
+  /* image */
   .card img {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 10px;
   }
   
+  /* text */
   .card h3 {
     margin-bottom: 10px;
   }
@@ -280,12 +339,23 @@
     line-height: 1.4;
   }
   
-  .card a {
-    display: inline-block;
-    margin-top: 10px;
-    color: #000;
-    font-weight: bold;
+  /* =========================
+     SEE MORE
+     ========================= */
+  .see-more {
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  .see-more a {
+    color: orange;
+    font-weight: 600;
     text-decoration: none;
+  }
+  
+  .see-more a:hover {
+    color: red;
+    text-decoration: underline;
   }
   
   /* =========================
@@ -297,3 +367,121 @@
     font-size: 0.9rem;
     color: #777;
   }
+
+  /* =========================
+   ABOUT HERO SECTION
+   ========================= */
+.about-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* video container */
+.about-media video {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* buttons under video */
+.about-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.about-buttons a {
+  padding: 10px 16px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: 0.2s ease;
+}
+
+.about-buttons a:hover {
+  background: orange;
+}
+
+/* text side */
+.about-text {
+  display: flex;
+  align-items: center;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* =========================
+   SECTION TITLE BLOCK
+   ========================= */
+.section-title-block {
+  text-align: center;
+  padding: 80px 20px;
+  background: #111;
+  color: #fff;
+}
+
+.section-title-block p {
+  opacity: 0.7;
+  margin-top: 10px;
+}
+
+/* =========================
+   EXPERIENCE SECTIONS
+   ========================= */
+.experience-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: auto;
+  align-items: center;
+}
+
+/* alternating backgrounds */
+.experience-section.light {
+  background: #f5f5f5;
+}
+
+.experience-section.dark {
+  background: #e9e9e9;
+}
+
+/* text */
+.exp-text h3 {
+  margin-bottom: 10px;
+}
+
+.exp-text p {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* image */
+.exp-media img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 768px) {
+
+  .about-hero,
+  .experience-section {
+    grid-template-columns: 1fr;
+  }
+
+  .about-text {
+    margin-top: 20px;
+  }
+}

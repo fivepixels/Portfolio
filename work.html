@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .project {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .project:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .project img {
+            max-width: 40%;
+            height: auto;
+            margin: 0 20px;
+        }
+        .project-text {
+            max-width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#project1">Project 1</a>
+        <a href="#project2">Project 2</a>
+        <a href="#project3">Project 3</a>
+    </nav>
+
+    <section id="project1" class="project">
+        <div class="project-text">
+            <h2>Project 1</h2>
+            <p>Description of the first project. Highlight the key features and technologies used.</p>
+        </div>
+        <img src="project1.jpg" alt="Project 1 Image">
+    </section>
+
+    <section id="project2" class="project">
+        <div class="project-text">
+            <h2>Project 2</h2>
+            <p>Description of the second project. Highlight the key features and technologies used.</p>
+        </div>
+        <img src="project2.jpg" alt="Project 2 Image">
+    </section>
+
+    <section id="project3" class="project">
+        <div class="project-text">
+            <h2>Project 3</h2>
+            <p>Description of the third project. Highlight the key features and technologies used.</p>
+        </div>
+        <img src="project3.jpg" alt="Project 3 Image">
+    </section>
+</body>
+</html>
