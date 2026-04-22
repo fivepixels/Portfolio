@@ -589,7 +589,7 @@
 
    .section-title-block {
     position: relative;
-    min-height: 55vh;
+    min-height: 25vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -632,7 +632,7 @@
   
   /* anchor offset for fixed navbar */
   #work-experience {
-    scroll-margin-top: 100px;
+    scroll-margin-top: 80px;
   }
   
   /* mobile fallback */
