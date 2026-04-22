@@ -6,6 +6,10 @@
     padding: 0;
     box-sizing: border-box;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
   
   /* =========================
      BASE
@@ -20,6 +24,11 @@
   /* =========================
      NAVBAR
      ========================= */
+
+     #work-experience {
+      scroll-margin-top: 100px;
+    }
+
   .navbar {
     position: fixed;
     top: 0;
@@ -320,16 +329,22 @@
   }
   
   .section {
-    margin-bottom: 120px;
+    margin-bottom: 80px;
   }
 
   .section + .section::before {
     content: "";
     display: block;
-    width: 120px;
-    height: 2px;
-    background: #ddd;
-    margin: 0 auto 80px auto;
+    height: 1.25px;
+    width: 100%;
+    margin-bottom: 60px;
+  
+    background: linear-gradient(
+      to right,
+      transparent,
+      #ddd,
+      transparent
+    );
   }
 
   .section h2 {
@@ -337,6 +352,98 @@
     font-size: 1.8rem;
   }
   
+
+/* =========================
+   BRANDS CAROUSEL
+   ========================= */
+
+   .brands-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .carousel-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+  }
+  
+  .carousel-group {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-shrink: 0;
+    padding-right: 60px;
+  }
+  
+  .carousel img {
+    height: 50px;
+    width: auto;
+    opacity: 0.7;
+    filter: grayscale(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+  }
+  
+  .carousel img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: grayscale(0%);
+  }
+  
+  /* seamless animation */
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% / 2));
+    }
+  }
+  
+  /* pause on hover */
+  .carousel:hover .carousel-track {
+    animation-play-state: paused;
+  }
+  
+  /* fade edges */
+  .carousel::before,
+  .carousel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 80px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+  .carousel::before {
+    left: 0;
+    background: linear-gradient(to right, #f5f5f5, transparent);
+  }
+  
+  .carousel::after {
+    right: 0;
+    background: linear-gradient(to left, #f5f5f5, transparent);
+  }
+  
+  @media (max-width: 768px) {
+    .carousel-group {
+      gap: 40px;
+      padding-right: 40px;
+    }
+  
+    .carousel img {
+      height: 35px;
+    }
+  }
+
   /* =========================
      GRID
      ========================= */
@@ -475,6 +582,75 @@
     color: #333;
   }
   
+
+/* =========================
+   SECTION TITLE BANNER
+   ========================= */
+
+   .section-title-block {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    text-align: center;
+    color: #fff;
+  
+    background-image: url("images/project1.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  
+    overflow: hidden;
+  }
+  
+  .section-title-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+  }
+  
+  .section-title-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 20px;
+  }
+  
+  .section-title-block h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+  
+  .section-title-block p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  /* anchor offset for fixed navbar */
+  #work-experience {
+    scroll-margin-top: 100px;
+  }
+  
+  /* mobile fallback */
+  @media (max-width: 768px) {
+    .section-title-block {
+      min-height: 40vh;
+      background-attachment: scroll; /* more reliable on mobile */
+    }
+  
+    .section-title-block h2 {
+      font-size: 2.2rem;
+    }
+  
+    .section-title-block p {
+      font-size: 1.05rem;
+    }
+  }
+
   /* =========================
      EXPERIENCE SECTION
      ========================= */
