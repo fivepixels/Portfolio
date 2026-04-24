@@ -614,7 +614,7 @@
     text-align: center;
     color: #fff;
   
-    background-image: url("images/project1.jpeg");
+    background-image: url("images/ProfileParallax.jpeg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -702,6 +702,36 @@
     border-radius: 12px;
   }
   
+  .work-entry {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 0 40px;
+  }
+  
+  .work-entry h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 60px;
+  }
+  
+  .job-quote {
+    margin-left: 80px;
+    margin-bottom: 60px;
+  }
+  
+  .job-quote p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  
+  .job-quote cite {
+    font-style: normal;
+    font-size: 1rem;
+  }
+  
+
+
   /* =========================
      REVEAL SYSTEM
      ========================= */
