@@ -882,3 +882,81 @@
     font-size: 2rem;
   }
 }
+
+
+/* =========================
+   NBA / WNBA PROJECT PAGE
+   ========================= */
+
+   .nba-project-page h1 {
+    margin-bottom: 36px;
+  }
+  
+  .nba-hero-section {
+    display: grid;
+    grid-template-columns: minmax(260px, 340px) 1fr;
+    gap: 56px;
+    align-items: center;
+    margin-bottom: 80px;
+  }
+  
+  .nba-video-frame {
+    background: #111;
+    padding: 12px;
+    border-radius: 36px;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+  }
+  
+  .nba-video-frame video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border-radius: 26px;
+    background: #000;
+  }
+  
+  .nba-project-copy {
+    max-width: 680px;
+  }
+  
+  .nba-project-copy p {
+    font-size: 1.12rem;
+    line-height: 1.75;
+    color: #444;
+    margin-bottom: 18px;
+  }
+  
+  .nba-lenses-section {
+    margin-top: 20px;
+  }
+  
+  .nba-lenses-section h2 {
+    margin-bottom: 28px;
+  }
+  
+  /* Mobile layout */
+  @media (max-width: 768px) {
+    .nba-hero-section {
+      grid-template-columns: 1fr;
+      gap: 36px;
+      margin-bottom: 60px;
+    }
+  
+    .nba-video-frame {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+  
+    .nba-project-copy p {
+      font-size: 1.02rem;
+      line-height: 1.65;
+    }
+  }
+  
+  /* Keep snapcodes hidden on small screens */
+  @media (max-width: 600px) {
+    .nba-lenses-section .snapcode {
+      display: none;
+    }
+  }
