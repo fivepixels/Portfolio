@@ -1334,6 +1334,22 @@
 }
 }
 
+
+.full-image-break img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:cover;
+}
+
+
+/* Hide on mobile */
+@media (max-width:768px){
+  .full-image-break{
+    display:none;
+  }
+}
+
 .video-embed{
 
   border-radius: 12px;
