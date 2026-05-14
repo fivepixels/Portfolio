@@ -91,30 +91,6 @@ body.contact-page {
     border-color: #ff6a00;
   }
   
-  .contact-meta {
-    margin-top: 34px;
-  
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  
-    color: #666;
-    font-size: 0.95rem;
-  }
-  
-  .contact-meta a,
-  .contact-meta p {
-    margin: 0;
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.25s ease;
-  }
-  
-  .contact-meta a:hover {
-    color: #ff6a00;
-  }
-  
   .contact-page .nav-links a {
     opacity: 0;
     transform: translateX(20px);

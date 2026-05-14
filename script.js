@@ -1,36 +1,47 @@
 
 /* =========================
    PORTFOLIO MAIN SCRIPT
-   (theme + nav + animations)
+   (nav + animations)
    CLEAN + OPTIMIZED VERSION
    ========================= */
 
-   document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-    /* =========================
-       THEME SYSTEM
-       ========================= */
-    const toggleBtn = document.getElementById("themeToggle");
-  
-    if (toggleBtn) {
-      toggleBtn.addEventListener("click", () => {
-        document.body.classList.toggle("light");
-  
-        const theme = document.body.classList.contains("light")
-          ? "light"
-          : "dark";
-  
-        localStorage.setItem("theme", theme);
-      });
+    const heroDescription = document.querySelector(".hero .description");
+
+    if (heroDescription) {
+      const sourceText = heroDescription.textContent.trim().replace(/\s+/g, " ");
+      const originalHeight = heroDescription.getBoundingClientRect().height;
+      const textNode = document.createTextNode("");
+      const cursor = document.createElement("span");
+      let index = 0;
+
+      cursor.className = "typewriter-cursor";
+      cursor.setAttribute("aria-hidden", "true");
+
+      heroDescription.setAttribute("aria-label", sourceText);
+      heroDescription.style.minHeight = `${originalHeight}px`;
+      heroDescription.textContent = "";
+      heroDescription.append(textNode, cursor);
+
+      const typeNextCharacter = () => {
+        textNode.textContent = sourceText.slice(0, index);
+
+        if (index < sourceText.length) {
+          const currentCharacter = sourceText.charAt(index);
+          const pause = /[.,]/.test(currentCharacter) ? 90 : 40;
+
+          index += 1;
+          window.setTimeout(typeNextCharacter, pause);
+        }
+      };
+
+      window.setTimeout(() => {
+        heroDescription.classList.add("typewriter-active");
+        typeNextCharacter();
+      }, 800);
     }
-  
-    // load saved theme
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light") {
-      document.body.classList.add("light");
-    }
-  
-  
+
     /* =========================
        MOBILE NAVIGATION
        ========================= */
@@ -50,33 +61,29 @@
        (unified for ALL sections)
        ========================= */
     const revealElements = document.querySelectorAll(".reveal");
-  
-    if (revealElements.length === 0) return;
-  
-    const observer = new IntersectionObserver((entries, obs) => {
-  
-      entries.forEach((entry) => {
-  
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-  
-          // animate once (performance + avoids flicker)
-          obs.unobserve(entry.target);
-        }
-  
+
+    if (revealElements.length > 0) {
+      const observer = new IntersectionObserver((entries, obs) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+
+            // animate once (performance + avoids flicker)
+            obs.unobserve(entry.target);
+          }
+
+        });
+
+      }, {
+        threshold: 0.2,        // balanced trigger point
+        rootMargin: "0px 0px -10% 0px" // slightly earlier reveal
       });
-  
-    }, {
-      threshold: 0.2,        // balanced trigger point
-      rootMargin: "0px 0px -10% 0px" // slightly earlier reveal
-    });
-  
-    revealElements.forEach((el) => observer.observe(el));
-  
-  });
 
+      revealElements.forEach((el) => observer.observe(el));
+    }
 
-  document.addEventListener("DOMContentLoaded", () => {
     const aboutLink = document.getElementById("aboutLink");
     const workLink = document.getElementById("workLink");
     const workSection = document.getElementById("work-experience");
@@ -107,4 +114,4 @@
   
       navObserver.observe(workSection);
     }
-  });
+});

@@ -24,11 +24,6 @@
   /* =========================
      NAVBAR
      ========================= */
-
-     #work-experience {
-      scroll-margin-top: 100px;
-    }
-
   .navbar {
     position: fixed;
     top: 0;
@@ -133,6 +128,7 @@
 
   .nav-links a:hover{
     color:#ff6b00;
+    opacity: 1;
   }
   
   .nav-links a:nth-child(1) { animation-delay: 1.4s; }
@@ -144,10 +140,6 @@
       opacity: 0.8;
       transform: translateX(0);
     }
-  }
-  
-  .nav-links a:hover {
-    opacity: 1;
   }
   
   /* hamburger */
@@ -224,7 +216,7 @@
      ========================= */
   .hero {
     position: relative;
-    height: 95vh;
+    height: 100vh;
   
     display: flex;
     align-items: center;
@@ -271,6 +263,8 @@
   .hero .description {
     opacity: 0;
     transform: translateY(25px);
+    
+
   }
   
   .hero h1 {
@@ -280,21 +274,63 @@
   }
   
   .hero .subtitle {
-    font-size: 1.25rem;
+    font-size: 1rem;
     margin-bottom: 40px;
     animation: fadeUp 0.9s ease-out 0.55s forwards;
   }
   
   .hero .description {
-    font-size: 1rem;
+    font-family: "Courier Prime", monospace;
+    font-size: 1.25rem;
     line-height: 1.65;
     animation: fadeUp 0.9s ease-out 0.8s forwards;
+    display: inline-block;
+    max-width: 100%;
+    padding: 3px 5px;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .hero .description.typewriter-active {
+    opacity: 1;
+    transform: translateY(0);
+    animation: none;
+  }
+
+  .hero .description:hover {
+    background: orange;
+    color: #111;
+  }
+
+  .typewriter-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    margin-left: 3px;
+    vertical-align: -0.14em;
+    background: currentColor;
+    animation: typewriterCursorBlink 0.78s step-end infinite;
   }
   
   @keyframes fadeUp {
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes typewriterCursorBlink {
+    0%,
+    49% {
+      opacity: 1;
+    }
+
+    50%,
+    100% {
+      opacity: 0;
     }
   }
   
@@ -503,8 +539,7 @@
   text-align: left;
 }
 
-.card p,
-.card-inner p {
+.card p {
   color: #555;
   line-height: 1.45;
   text-align: left;
@@ -519,7 +554,8 @@
       margin-top:50px;
     }
     
-    .see-more a{
+    .see-more a,
+    .back-home a{
       display:inline-block;
       padding:14px 28px;
       border:2px solid #ff6b00;
@@ -562,6 +598,8 @@
     position: relative;
     width: 100%;
     padding-top: 56.25%;
+    aspect-ratio: 16 / 9;
+    margin: 20px 0;
     border-radius: 12px;
     overflow: hidden;
   }
@@ -571,6 +609,16 @@
     inset: 0;
     width: 100%;
     height: 100%;
+    border: 0;
+  }
+
+  .video-wrapper img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
   
   .about-buttons {
@@ -718,18 +766,6 @@
   display:block;
 }
   
-  .work-entry {
-    max-width: 800px;
-    margin: 80px auto;
-    padding: 0 40px;
-  }
-  
-  .work-entry h1 {
-    font-size: 5rem;
-    font-weight: 800;
-    margin-bottom: 60px;
-  }
-  
   .job-quote {
     margin-left: 80px;
     margin-bottom: 60px;
@@ -778,21 +814,6 @@
      ========================= */
 
 
-  .video-wrapper {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    margin: 20px 0;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  
-  .video-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-  }
-
   .project-description{
     max-width: 900px;
     line-height: 1.7;
@@ -810,7 +831,6 @@
 
 
   .card-inner .snapcode {
-    width: 140px;
     height: auto;
     object-fit: contain;
     
@@ -825,17 +845,6 @@
   .back-home{
     text-align:center;
     margin:80px 0 60px;
-  }
-  
-  .back-home a{
-    display:inline-block;
-    padding:14px 28px;
-    border:2px solid #ff6b00;
-    border-radius:999px;
-    text-decoration:none;
-    color:#ff6b00;
-    font-weight:600;
-    transition:all .2s ease;
   }
   
   .back-home a:hover{
@@ -1166,29 +1175,6 @@
   
 
 
-/* =========================
-   LENS CARDS
-========================= */
-
-.lens-card {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 18px;
-  background: #fff;
-  border: 1px solid #ececec;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.28s ease, box-shadow 0.28s ease;
-}
-
-.lens-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 18px 35px rgba(0,0,0,0.12);
-}
-
 .lens-preview{
   width:100%;
   aspect-ratio:9 / 16;
@@ -1196,31 +1182,6 @@
   display:block;
   background:#ddd;
   }
-
-  .lens-card .card-inner{
-    padding:18px 18px 8px;
-    text-align:center;
-    }
-    
-
-    .lens-card h3{
-      margin:0;
-      font-size:1rem;
-      font-weight:700;
-      }
-
-/* smaller QR */
-.lens-qr{
-  
-  margin:16px auto 22px;
-  display:block;
-  opacity:.92;
-  transition:transform .25s ease;
-  }
-
-.lens-card:hover .lens-qr {
-  transform: scale(1.04);
-}
 
 
 /* =========================
@@ -1312,14 +1273,6 @@
   .more-ar-grid {
     grid-template-columns: 1fr;
     gap: 26px;
-  }
-
-  .lens-qr {
-    display: none;
-  }
-
-  .lens-card .card-inner {
-    padding: 20px 16px 22px;
   }
 
   .contact-footer p {
