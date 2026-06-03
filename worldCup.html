@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andres - World Cup Header Game</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="worldCup.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body class="world-cup-page">
+
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/webLogo.png" alt="Logo">
+      </a>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <a href="about.html">About</a>
+      <a href="about.html#work-experience">Work</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="hamburger" id="hamburger"></div>
+  </nav>
+
+  <main class="world-cup-wrapper">
+
+    <section class="world-cup-hero">
+      <div class="world-cup-hero-copy reveal">
+        <p class="world-cup-eyebrow">Snapchat Lens</p>
+        <h1>World Cup Header </h1>
+        <img class="world-cup-hero-snapcode" src="images/Snapcodes/wc.png" alt="World Cup Header Snapcode">
+        <p class="snapcode-wc">Scan with Snapchat</p>
+
+      </div>
+
+  <div class="nba-video-frame wc-video-frame">
+        <img src="images/Giffs/wcPrev.gif" alt="World Cup AR header game preview">
+      </div>
+    </section>
+
+    <section class="world-cup-overview reveal">
+      <div>
+        <h2>Project Overview</h2>
+        <p>
+          The Lens brings the traditional head juggling mechanic into a fast AR game: A ball spawns over the player’s head, Every hit grants a point until the time runs out.</p>
+      </div>
+      <div>
+        <h2>My Role</h2>
+        <p>
+          I owned the full production pipeline for this experience, from modeling and texturing the 3D assets to building the Lens Studio implementation, developing the core systems, and testing the final interaction.
+        </p>
+      </div>
+    </section>
+
+    <section class="case-study-section reveal">
+      <div class="case-study-copy">
+      
+        <h2>Event Manager</h2>
+        <p>
+       The game is organized through a simple event system that moves the experience from landing, 
+       countdown, active gameplay, game over, and replay. Each stage manages what is visible, active, 
+       or reset, keeping the Lens stable and easy to restart. Independent controllers also handle the score system, timer, countdown, 
+       camera switching, and animations.
+        </p>
+      </div>
+
+   <div class="nba-video-frame wc-thumbnail-frame">
+        <img src="images/Giffs/gameStagesThumb.gif" alt="World Cup AR header game preview">
+      </div>
+    </section>
+
+    <section class="case-study-section case-study-section-flipped reveal">
+      <div class="case-study-copy">
+       
+        <h2>Game Mechanics</h2>
+        <p>
+The game mechanics are built around ball, head, and floor colliders using Lens Studio physics. 
+When gameplay starts, the system spawns a ball and tracks each valid hit with the head collider 
+as a point. A hit threshold prevents accidental scoring when the ball is resting on the user’s head, 
+while floor collisions respawn the ball so the game keeps moving until the timer ends. The head collider 
+follows the user’s head and gradually increases its tilt influence every three hits, making the game approachable 
+at first and more challenging as the score increases.
+</p>
+      </div>
+
+      
+     <div class="nba-video-frame wc-thumbnail-frame">
+        <img src="images/bounce1.png" alt="World Cup AR header game preview">
+      </div>
+    </section>
+
+    <section class="case-study-section reveal">
+      <div class="case-study-copy">
+       
+        <h2>Visual Control</h2>
+        <p>
+I built a visual feedback system to make the ball feel less rigid and more satisfying to hit. 
+Each impact triggers squash, stretch, and spin effects that react to the strength of the collision, 
+so stronger hits create more noticeable animation and make the bounce feel more physical.        
+</p>
+      </div>
+
+           <div class="nba-video-frame wc-thumbnail-frame">
+        <img src="images/Giffs/bounce2.gif" alt="World Cup AR header game preview">
+      </div>
+    </section>
+
+    <section class="technical-systems reveal">
+      <div class="section-heading">
+        <p class="section-kicker">Technical Build</p>
+        <h2>Modular Game System</h2>
+        <p>
+          Behind the experience, I built a modular set of Lens Studio scripts that made the game easy to customize, test, and expand. Each script handles a specific part of the experience.
+      </div>
+
+      <div class="systems-grid">
+        <article>
+          <h3>Game Mechanics</h3>
+          <p>Controls the core gameplay loop, including ball spawning, scoring, timer logic, collision detection, difficulty scaling, personal record saving, and end-game routing.</p>
+        </article>
+
+
+                <article>
+          <h3>Stage Manager</h3>
+          <p>Handles the full game flow, moving the experience from landing to countdown, active gameplay, win/lose results, replay, and camera-switch recovery.</p>
+        </article>
+
+         <article>
+          <h3>Count Control</h3>
+          <p>Animates the 3, 2, 1 countdown with timed fade, scale, and opacity transitions before starting active gameplay.</p>
+        </article>
+
+
+        <article>
+          <h3>Impact Animation</h3>
+          <p>Adds physical feedback to the ball through impact-based spin, squash/stretch, recovery easing, and collision filtering with the head collider.</p>
+        </article>
+
+        <article>
+          <h3>UI Control</h3>
+          <p>Manages score, timer, CTA, final record display, landing transitions, capture-safe states, and full UI reset behavior.</p>
+        </article>
+        
+        <article>
+          <h3>Camera Control</h3>
+          <p>Handles front and rear camera switching, pausing gameplay systems on rear camera, and restoring the experience cleanly when returning to front camera.</p>
+        </article>
+
+        
+      </div>
+    </section>
+
+    <section class="case-study-section final-result reveal">
+      <div class="case-study-copy final-result-copy">
+        <p class="section-kicker">Final Result</p>
+        <h2>A Fast, Shareable AR Soccer Game</h2>
+        <p>
+The final Lens became a quick soccer challenge built around one simple idea: try to break the record in 30 seconds. After a few feedback rounds, we tightened the pacing, cleaned up the UI, and made the ball feel more fun to hit. The result is simple, playful, and easy to replay.        </p>
+        <img class="final-result-snapcode" src="images/Snapcodes/wc.png" alt="World Cup Header Snapcode">
+        <p class="snapcode-wc">Scan with Snapchat!</p>
+      </div>
+
+      <div class="nba-video-frame wc-thumbnail-frame final-result-media">
+        <img src="images/Giffs/wc.gif" alt="World Cup AR header game final result preview">
+      </div>
+    </section>
+
+    <div class="back-home">
+      <a href="index.html"> Back to Home</a>
+    </div>
+
+  </main>
+
+    <footer class="footer">
+   
+    <div class="contact-meta">
+      <p>© 2026 Andres Muñoz</p>
+      <a href="mailto:web.andres.m@gmail.com">web.andres.m@gmail.com</a>
+      <a href="tel:+16129998875">(612) 999-8875</a>
+      <p>Santa Monica, CA</p>
+    </div>
+  </footer>
+
+</body>
+</html>

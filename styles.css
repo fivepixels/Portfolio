@@ -288,7 +288,7 @@
   }
   
   .hero .description {
-    font-family: "Courier Prime", monospace;
+    font-family: Arial, sans-serif;
     font-size: 1.25rem;
     line-height: 1.65;
     animation: fadeUp 0.9s ease-out 0.8s forwards;
@@ -510,7 +510,7 @@
   color: inherit;
 
   background: #fff;
-  padding: 20px;
+  padding: 10px;
   border-radius: 14px;
 
   border: 1px solid #eee;
@@ -663,7 +663,7 @@
     text-align: center;
     color: #fff;
   
-    background-image: url("images/ProfileParallax.jpeg");
+    background-image: url("images/parallax.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -823,7 +823,7 @@
   }
 
   .snapcode {
-    width: 140px;
+    width: 119px;
     display: block;
     margin: 16px auto 0;
     border-radius: 12px;
@@ -832,6 +832,7 @@
 
 
   .card-inner .snapcode {
+    width: 129px;
     height: auto;
     object-fit: contain;
     
@@ -988,7 +989,8 @@
     z-index: -1;
   }
   
-  .nba-video-frame video {
+  .nba-video-frame video,
+  .nba-video-frame img {
     display: block;
     width: 100%;
     aspect-ratio: 9 / 16;
@@ -1108,7 +1110,7 @@
 .more-ar-wrapper {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 140px 8vw 70px;
+  padding: 50px 8vw 70px;
 }
 
 .more-ar-hero {
@@ -1144,11 +1146,12 @@
 ========================= */
 
 .more-ar-section {
-  margin-bottom: 90px;
+  margin-bottom: 30px;
 }
 
 .section-heading {
-  margin-bottom: 34px;
+  margin-top: 54px;
+  margin-bottom: 24px;
 }
 
 .section-heading h2 {
@@ -1169,11 +1172,17 @@
 
 .more-ar-grid{
   display:grid;
-  grid-template-columns:repeat(4,minmax(200px,260px));
+  grid-template-columns:repeat(4,minmax(230px,360px));
   justify-content:center;
-  gap:36px;
+  gap:26px;
   }
-  
+
+.more-ar-grid .card-inner,
+.more-ar-grid .card h3,
+.more-ar-grid .card p {
+  text-align: center;
+}
+	  
 
 
 .lens-preview{

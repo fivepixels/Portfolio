@@ -60,7 +60,16 @@ document.addEventListener("DOMContentLoaded", () => {
        SCROLL REVEAL SYSTEM
        (unified for ALL sections)
        ========================= */
-    const revealElements = document.querySelectorAll(".reveal");
+    const timedMoreArCards = document.querySelectorAll(".more-ar-grid .reveal");
+
+    if (timedMoreArCards.length > 0) {
+      window.setTimeout(() => {
+        timedMoreArCards.forEach((el) => el.classList.add("active"));
+      }, 250);
+    }
+
+    const revealElements = Array.from(document.querySelectorAll(".reveal"))
+      .filter((el) => !el.closest(".more-ar-grid"));
 
     if (revealElements.length > 0) {
       const observer = new IntersectionObserver((entries, obs) => {
