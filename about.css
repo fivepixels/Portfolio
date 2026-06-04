@@ -180,6 +180,91 @@
 }
 
 /* =========================
+   RESUME PAGE
+========================= */
+
+.resume-page .resume-title-block {
+  min-height: 30vh;
+}
+
+.resume-page .resume-actions {
+  margin-top: 26px;
+}
+
+.resume-page .resume-actions a {
+  display: inline-block;
+  padding: 14px 28px;
+  border: 2px solid #ff6b00;
+  border-radius: 999px;
+  color: #fff;
+  background: #ff6b00;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.resume-page .resume-actions a:hover {
+  transform: translateY(-2px);
+  background: #ff5a00;
+  border-color: #ff5a00;
+}
+
+.resume-page .selected-experience-timeline {
+  padding-top: 64px;
+}
+
+.resume-page .selected-experience-timeline::before {
+  top: 152px;
+}
+
+.resume-section-heading {
+  margin: 0 0 48px 62px;
+}
+
+.resume-section-heading h2 {
+  margin: 0;
+  color: #111;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.resume-details {
+  max-width: 1050px;
+  margin: 0 auto 90px;
+  padding: 0 8vw;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.resume-details article {
+  padding: 28px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.resume-details h2 {
+  margin: 0 0 16px;
+  color: #111;
+  font-size: 1.25rem;
+}
+
+.resume-details ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.resume-details li {
+  margin-bottom: 9px;
+  color: #555;
+  line-height: 1.55;
+}
+
+.resume-details li:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================
    RESPONSIVE
 ========================= */
 
@@ -240,5 +325,19 @@
 
   .about-page .timeline-role {
     padding: 20px 0;
+  }
+
+  .resume-page .selected-experience-timeline::before {
+    top: 132px;
+  }
+
+  .resume-section-heading {
+    margin: 0 0 40px 36px;
+  }
+
+  .resume-details {
+    grid-template-columns: 1fr;
+    padding: 0 6vw;
+    margin-bottom: 70px;
   }
 }

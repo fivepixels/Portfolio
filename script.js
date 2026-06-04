@@ -53,6 +53,13 @@ document.addEventListener("DOMContentLoaded", () => {
         navLinks.classList.toggle("active");
         hamburger.classList.toggle("active");
       });
+
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          hamburger.classList.remove("active");
+        });
+      });
     }
   
   
@@ -93,34 +100,4 @@ document.addEventListener("DOMContentLoaded", () => {
       revealElements.forEach((el) => observer.observe(el));
     }
 
-    const aboutLink = document.getElementById("aboutLink");
-    const workLink = document.getElementById("workLink");
-    const workSection = document.getElementById("work-experience");
-  
-    if (aboutLink && workLink && workSection) {
-      const setActiveLink = (activeLink, inactiveLink) => {
-        activeLink.classList.add("active");
-        inactiveLink.classList.remove("active");
-      };
-  
-      // default state on about page
-      setActiveLink(aboutLink, workLink);
-  
-      const navObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setActiveLink(workLink, aboutLink);
-            } else {
-              setActiveLink(aboutLink, workLink);
-            }
-          });
-        },
-        {
-          threshold: 0.35
-        }
-      );
-  
-      navObserver.observe(workSection);
-    }
 });
