@@ -58,15 +58,6 @@
     width: auto;
   }
 
-  /* =========================
-   DISABLE NAV ANIMATION ON ABOUT PAGE
-   ========================= */
-.about-page .nav-links a {
-  opacity: 1;
-  transform: none;
-  animation: none;
-}
-
 /* =========================
    ABOUT TEXT BLOCK
    ========================= */
@@ -131,7 +122,7 @@
     opacity: 0;
     transform: translateX(20px);
   
-    animation: navLinkIn 0.6s ease-out forwards;
+    animation: navLinkIn 0.26s ease-out forwards;
   }
 
   .nav-links a:hover{
@@ -139,10 +130,10 @@
     opacity: 1;
   }
   
-  .nav-links a:nth-child(1) { animation-delay: 1.4s; }
-  .nav-links a:nth-child(2) { animation-delay: 1.55s; }
-  .nav-links a:nth-child(3) { animation-delay: 1.7s; }
-  .nav-links a:nth-child(4) { animation-delay: 1.85s; }
+  .nav-links a:nth-child(1) { animation-delay: .25s; }
+  .nav-links a:nth-child(2) { animation-delay: .25s; }
+  .nav-links a:nth-child(3) { animation-delay: .25s; }
+  .nav-links a:nth-child(4) { animation-delay: .25s; }
   
   @keyframes navLinkIn {
     to {
